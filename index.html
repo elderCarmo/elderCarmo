@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            align-items: center;
+            gap: 1rem;
+            /* justify-content: space-around; */
+            margin-left: 20rem;
+            margin-top: 10rem;
+        }
+
+        .container p {
+            font-style: oblique;
+            color: blue;
+            text-decoration: underline wavy blue;
+
+        }
+
+        .container input {
+            width: 10rem;
+            height: 10rem;
+            font-size: 40px;
+            text-align: center;
+            outline: none;
+            border-radius: 5px 5px;
+        }
+
+        button {
+            width: 10rem;
+            height: 3rem;
+            font-size: 2rem;
+            color: blue;
+        }
+
+        b {
+            color: blue;
+            font-size: 3rem;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <p>CALCULADORA-ELDER</p>
+        <div>
+            <input type="text" id="input1">
+            <select name="operadores" id="operadores">
+                <option selected value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" id="input2">
+            <b>=</b> &nbsp;
+            <input type="text" id="put2">
+        </div>
+        <button onclick="calcular()">Calcular</button>
+        <button onclick="Zerar()">Zerar</button>
+
+    </main>
+    <script>
+        var primeiroAlgarismo = document.getElementById('input1');
+        var segundoAlgarismo = document.getElementById('input2');
+        var operadores = document.getElementById('operadores');
+        var put = document.getElementById('put2');
+        function calcular() {
+            if (!operadores.value) {
+                alert("para calcular escolha o operador")
+            }
+            switch (operadores.value) {
+                case '+':
+                    let soma = parseInt(primeiroAlgarismo.value) + parseInt(segundoAlgarismo.value)
+                    put.value = soma
+
+                    break;
+
+
+                case '-':
+                    let subtracao = parseInt(primeiroAlgarismo.value) - parseInt(segundoAlgarismo.value)
+                    put.value = subtracao
+                    break;
+
+                case '*':
+                    let multiplicacao = parseInt(primeiroAlgarismo.value) * parseInt(segundoAlgarismo.value)
+                    put.value = multiplicacao
+                    break;
+
+                case '/':
+                    let divisao = parseInt(primeiroAlgarismo.value) / parseInt(segundoAlgarismo.value)
+                    put.value = divisao
+                    break;
+
+            }
+        }
+        function Zerar() {
+            primeiroAlgarismo.value = "";
+            segundoAlgarismo.value = "";
+            operadores.value = ""
+            put.value = ""
+
+        }
+
+
+    </script>
+</body>
+
+</html>
